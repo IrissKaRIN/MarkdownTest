@@ -88,3 +88,7 @@ Arrhythmia ECG_SVT_detector(std::vector<float> samples, int sampleCount);
  **/
 Arrhythmia ECG_VT_detector(std::vector<float> samples, int sampleCount);
 ```
+
+## Copyright
+Copyright (c) 2020 Ncube Inc.
+All rights reserved.
