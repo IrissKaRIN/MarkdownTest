@@ -52,10 +52,10 @@ enum class Arrhythmia : unsigned
  * @param sampleCount 심전도 파형 샘플 데이터 개수
  * @return Arrhythmia::Normal (정상), Arrhythmia::AF (심방 세동)
  **/
-Arrhythmia ECG_Atrial_Fbrillation_detector(std::vector<float> samples, int sampleCount);
+Arrhythmia detect_Atrial_Fibrillation(std::vector<double> samples, int sampleCount);
 ```
 
-2. 이단맥, 삼단맥 검출
+2. 이단맥, 삼단맥, 심정지 검출
 ```C++
 /**
  * @brief 이단맥 또는 삼단맥을 검출합니다.
@@ -64,7 +64,7 @@ Arrhythmia ECG_Atrial_Fbrillation_detector(std::vector<float> samples, int sampl
  * @param sampleCount 심전도 파형 샘플 데이터 개수
  * @return Arrhythmia::Normal (정상), Arrhythmia::Bigeminy (이단맥), Arrhythmia::Trigeminy (삼단맥)
  **/
-Arrhythmia ECG_Bigeminy_detector(std::vector<float> samples, int sampleCount);
+Arrhythmia detect_Bigeminy_Trigeminy_Asystole(std::vector<double> samples, int sampleCount);
 ```
 
 3. 빈맥 검출
@@ -76,25 +76,19 @@ Arrhythmia ECG_Bigeminy_detector(std::vector<float> samples, int sampleCount);
  * @param sampleCount 심전도 파형 샘플 데이터 개수
  * @return Arrhythmia::Normal (정상), Arrhythmia::VT (심실빈맥)
  **/
-Arrhythmia ECG_PVC_VT_detector(std::vector<float> samples, int sampleCount);
+Arrhythmia detect_VT_SVT(std::vector<float> samples, int sampleCount);
+```
 
+4. 심근 허혈 검출
+```C++
 /**
- * @brief 심실빈맥 또는 상심실성 빈맥을 검출합니다.
+ * @brief 심근 허혈을 검출합니다.
  *
  * @param samples 심전도(ECG) 파형 샘플 데이터 목록 (Sample rate는 250으로 고정해야 함)
  * @param sampleCount 심전도 파형 샘플 데이터 개수
- * @return Arrhythmia::Normal (정상), Arrhythmia::VT (심실빈맥), Arrhythmia::SVT (상심실성 빈맥)
+ * @return Arrhythmia::Normal (정상), Arrhythmia::VT (심실빈맥)
  **/
-Arrhythmia ECG_SVT_detector(std::vector<float> samples, int sampleCount);
-
-/**
- * @brief 심실빈맥 또는 상심실성 빈맥을 검출합니다.
- *
- * @param samples 심전도(ECG) 파형 샘플 데이터 목록 (Sample rate는 250으로 고정해야 함)
- * @param sampleCount 심전도 파형 샘플 데이터 개수
- * @return Arrhythmia::Normal (정상), Arrhythmia::VT (심실빈맥), Arrhythmia::SVT (상심실성 빈맥)
- **/
-Arrhythmia ECG_VT_detector(std::vector<float> samples, int sampleCount);
+Arrhythmia detect_Ischemia(std::vector<float> samples, int sampleCount);
 ```
 
 ## Copyright
