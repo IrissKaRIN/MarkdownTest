@@ -43,7 +43,39 @@ enum class Arrhythmia : unsigned
 ### 검출 함수 정의
 부정맥 검출을 위해 호출 가능한 함수들은 아래와 같이 정의됩니다.
 
-1. 심근 허혈 검출
+1. 기간별 검출
+```C++
+/**
+ * @brief 단기간 데이터 (60초 이내) 내에서 부정맥을 검출합니다.
+ *
+ * @param samples 심전도(ECG) 파형 샘플 데이터 목록 (Sample rate는 250으로 고정해야 함)
+ * @param sampleCount 심전도 파형 샘플 데이터 개수
+ * @return
+ *     Arrhythmia::Normal (정상)
+ *     Arrhythmia::Ischemia (심근 허혈)
+ *     Arrhythmia::PVC (조기심실수축)
+ *     Arrhythmia::Bigeminy (이단맥)
+ *     Arrhythmia::Trigeminy (삼단맥)
+ *     Arrhythmia::Asystole (심정지)
+ **/
+Arrhythmia detect_Short_Term_Signal(std::vector<float> samples, int sampleCount);
+
+/**
+ * @brief 장기간 데이터 (60초 이상) 내에서 부정맥을 검출합니다.
+ *
+ * @param samples 심전도(ECG) 파형 샘플 데이터 목록 (Sample rate는 250으로 고정해야 함)
+ * @param sampleCount 심전도 파형 샘플 데이터 개수
+ * @return
+ *     Arrhythmia::Normal (정상)
+ *     Arrhythmia::AF (심근 허혈)
+ *     Arrhythmia::Tachycardia (빈맥)
+ *     Arrhythmia::VT (심실빈맥)
+ *     Arrhythmia::SVT (상심실성 빈맥)
+ **/
+Arrhythmia detect_Long_Term_Signal(std::vector<float> samples, int sampleCount);
+```
+
+2. 종류별 검출
 ```C++
 /**
  * @brief 심근 허혈을 검출합니다.
@@ -53,10 +85,7 @@ enum class Arrhythmia : unsigned
  * @return Arrhythmia::Normal (정상), Arrhythmia::Ischemia (심근 허혈)
  **/
 Arrhythmia detect_Ischemia(std::vector<float> samples, int sampleCount);
-```
 
-2. 이단맥, 삼단맥, 심정지 검출
-```C++
 /**
  * @brief 이단맥, 삼단맥, 심정지를 검출합니다.
  *
@@ -65,10 +94,7 @@ Arrhythmia detect_Ischemia(std::vector<float> samples, int sampleCount);
  * @return Arrhythmia::Normal (정상), Arrhythmia::Bigeminy (이단맥), Arrhythmia::Trigeminy (삼단맥), Arrhythmia::Asystole (심정지)
  **/
 Arrhythmia detect_Bigeminy_Trigeminy_Asystole(std::vector<double> samples, int sampleCount);
-```
 
-3. 심방 세동 검출
-```C++
 /**
  * @brief 심방 세동을 검출합니다.
  *
@@ -77,10 +103,7 @@ Arrhythmia detect_Bigeminy_Trigeminy_Asystole(std::vector<double> samples, int s
  * @return Arrhythmia::Normal (정상), Arrhythmia::AF (심방 세동)
  **/
 Arrhythmia detect_Atrial_Fibrillation(std::vector<double> samples, int sampleCount);
-```
 
-4. 빈맥 검출
-```C++
 /**
  * @brief 심실빈맥을 검출합니다.
  *
