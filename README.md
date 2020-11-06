@@ -5,15 +5,19 @@ Arrhythmia Detection은 심전도(ECG) 파형 데이터를 분석하여, 해당 
 
 ### 검출 가능한 부정맥 종류
 현재 검출이 가능한 부정맥의 종류는 다음과 같습니다.
-- 심방 세동 (AF, Atrial Fibrillation)
+- 심근 허혈증 (Ischemia)
+- 조기심실수축 (PVC, Premature ventricular Contraction)
 - 이단맥 (Bigeminy)
 - 삼단맥 (Trigeminy)
+- 심정지 (Asystole)
+- 심방 세동 (AF, Atrial Fibrillation)
+- 빈맥 (Tachycardia)
 - 심실빈맥 (VT, Ventricular Tachycardia)
 - 상심실성 빈맥 (SVT, Supraventricular Tachycardia)
 
 이후 지속적으로 다양한 부정맥 종류들을 추가할 예정입니다.
-- 심근 허혈증 (Ischemia)
-- 조기심실수축 (PVC, Premature ventricular Contraction)
+- 서맥 (Bradycardia)
+- 심실서맥 (VB, Ventricular Bradycardia)
 
 ## 제공 API 기본 구조
 
@@ -23,11 +27,15 @@ Arrhythmia Detection은 심전도(ECG) 파형 데이터를 분석하여, 해당 
 enum class Arrhythmia : unsigned
 {
     Normal = 0x0,       // Not arrhythmia
-    AF = 0x1,           // Atrial Fibrillation
-    Bigeminy = 0x2,     // Bigeminy
-    Trigeminy = 0x4,    // Trigeminy
-    VT = 0x8,           // Ventricular Tachycardia
-    SVT = 0x10,         // Supraventricular Tachycardia
+    Ischemia = 0x1,     // Ischemia
+    PVC = 0x2,          // Premature ventricular Contraction
+    Bigeminy = 0x4,     // Bigeminy
+    Trigeminy = 0x8,    // Trigeminy
+    Asystole = 0x10,    // Asystole
+    AF = 0x20,          // Atrial Fibrillation
+    Tachycardia = 0x40, // Tachycardia
+    VT = 0x80,          // Ventricular Tachycardia
+    SVT = 0x100,        // Supraventricular Tachycardia
 };
 ```
 추가로, ECG 파형에 따라 다수의 부정맥이 검출될 수 있으므로, bitmask OR 처리를 통해 중복 처리가 가능합니다.
