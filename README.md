@@ -82,7 +82,9 @@ Arrhythmia detect_Long_Term_Signal(std::vector<float> samples, int sampleCount);
  *
  * @param samples 심전도(ECG) 파형 샘플 데이터 목록 (Sample rate는 250으로 고정해야 함)
  * @param sampleCount 심전도 파형 샘플 데이터 개수
- * @return Arrhythmia::Normal (정상), Arrhythmia::Ischemia (심근 허혈)
+ * @return
+ *     Arrhythmia::Normal (정상)
+ *     Arrhythmia::Ischemia (심근 허혈)
  **/
 Arrhythmia detect_Ischemia(std::vector<float> samples, int sampleCount);
 
@@ -91,7 +93,11 @@ Arrhythmia detect_Ischemia(std::vector<float> samples, int sampleCount);
  *
  * @param samples 심전도(ECG) 파형 샘플 데이터 목록 (Sample rate는 250으로 고정해야 함)
  * @param sampleCount 심전도 파형 샘플 데이터 개수
- * @return Arrhythmia::Normal (정상), Arrhythmia::Bigeminy (이단맥), Arrhythmia::Trigeminy (삼단맥), Arrhythmia::Asystole (심정지)
+ * @return
+ *     Arrhythmia::Normal (정상)
+ *     Arrhythmia::Bigeminy (이단맥)
+ *     Arrhythmia::Trigeminy (삼단맥)
+ *     Arrhythmia::Asystole (심정지)
  **/
 Arrhythmia detect_Bigeminy_Trigeminy_Asystole(std::vector<double> samples, int sampleCount);
 
@@ -100,7 +106,9 @@ Arrhythmia detect_Bigeminy_Trigeminy_Asystole(std::vector<double> samples, int s
  *
  * @param samples 심전도(ECG) 파형 샘플 데이터 목록 (Sample rate는 250으로 고정해야 함)
  * @param sampleCount 심전도 파형 샘플 데이터 개수
- * @return Arrhythmia::Normal (정상), Arrhythmia::AF (심방 세동)
+ * @return
+ *     Arrhythmia::Normal (정상)
+ *     Arrhythmia::AF (심방 세동)
  **/
 Arrhythmia detect_Atrial_Fibrillation(std::vector<double> samples, int sampleCount);
 
@@ -109,7 +117,11 @@ Arrhythmia detect_Atrial_Fibrillation(std::vector<double> samples, int sampleCou
  *
  * @param samples 심전도(ECG) 파형 샘플 데이터 목록 (Sample rate는 250으로 고정해야 함)
  * @param sampleCount 심전도 파형 샘플 데이터 개수
- * @return Arrhythmia::Normal (정상), Arrhythmia::Tachycardia (빈맥), Arrhythmia::VT (심실빈맥), Arrhythmia::SVT (상심실성 빈맥)
+ * @return
+ *     Arrhythmia::Normal (정상)
+ *     Arrhythmia::Tachycardia (빈맥)
+ *     Arrhythmia::VT (심실빈맥)
+ *     Arrhythmia::SVT (상심실성 빈맥)
  **/
 Arrhythmia detect_VT_SVT(std::vector<float> samples, int sampleCount);
 ```
