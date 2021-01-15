@@ -14,10 +14,9 @@ Arrhythmia Detection은 심전도(ECG) 파형 데이터를 분석하여, 해당 
 - 빈맥 (Tachycardia)
 - 심실빈맥 (VT, Ventricular Tachycardia)
 - 상심실성 빈맥 (SVT, Supraventricular Tachycardia)
+- 서맥 (Bradycardia)
 
 이후 지속적으로 다양한 부정맥 종류들을 추가할 예정입니다.
-- 서맥 (Bradycardia)
-- 심실서맥 (VB, Ventricular Bradycardia)
 
 ## 제공 API 기본 구조
 
@@ -36,6 +35,7 @@ enum class Arrhythmia : unsigned
     Tachycardia = 0x40, // Tachycardia
     VT = 0x80,          // Ventricular Tachycardia
     SVT = 0x100,        // Supraventricular Tachycardia
+    Bradycardia = 0x200,// Bradycardia
 };
 ```
 추가로, ECG 파형에 따라 다수의 부정맥이 검출될 수 있으므로, bitmask OR 처리를 통해 중복 처리가 가능합니다.
@@ -71,6 +71,7 @@ Arrhythmia detect_Short_Term_Signal(std::vector<float> samples, int sampleCount)
  *     Arrhythmia::Tachycardia (빈맥)
  *     Arrhythmia::VT (심실빈맥)
  *     Arrhythmia::SVT (상심실성 빈맥)
+ *     Arrhythmia::Bradycardia (서맥)
  **/
 Arrhythmia detect_Long_Term_Signal(std::vector<float> samples, int sampleCount);
 ```
@@ -119,9 +120,11 @@ Arrhythmia detect_Atrial_Fibrillation(std::vector<double> samples, int sampleCou
  * @param sampleCount 심전도 파형 샘플 데이터 개수
  * @return
  *     Arrhythmia::Normal (정상)
+ *     Arrhythmia::PVC (조기심실수축)
  *     Arrhythmia::Tachycardia (빈맥)
  *     Arrhythmia::VT (심실빈맥)
  *     Arrhythmia::SVT (상심실성 빈맥)
+ *     Arrhythmia::Bradycardia (서맥)
  **/
 Arrhythmia detect_VT_SVT(std::vector<float> samples, int sampleCount);
 ```
