@@ -161,7 +161,7 @@ Arrhythmia detect_VT_SVT(std::vector<float> samples, int sampleCount);
 -->
 
 ## How to use
-본 라이브러리의 경우, Windows OS에 DLL 파일을 직접 등록해야 사용 가능합니다.
+본 라이브러리의 경우, Windows OS에 DLL 파일을 직접 등록해야 사용 가능합니다.  
 DLL을 등록하기 위해서는 명령 프롬프트(이전 cmd)를 실행하신 후, 아래의 커맨드를 입력하시면 됩니다.
 ```cmd
 C:\Windows\Microsoft.NET\Framework\v4.0.30319\regasm.exe "[DLL full path]"
