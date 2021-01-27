@@ -58,13 +58,14 @@ enum class Arrhythmia : unsigned
 
 1. 심전도(ECG) 파형 샘플 데이터
 - Sample rate : <ins>250 (samples/sec) 으로 고정</ins>해야 합니다.
-- Sample length : <ins>총 90초 길이의 고정된 데이터</ins/>가 필요합니다. (250 samples/sec * 90 sec)
-> 입력데이터는 초당 250개로 샘플링된 ECG 신호를 사용하며, 데이터 길이는 90초로 고정해야합니다.
+- Sample length : <ins>총 90초 길이의 고정된 데이터</ins>가 필요합니다. (250 samples/sec * 90 sec)
+> 입력데이터는 초당 250개로 샘플링된 ECG 신호를 사용하며, 데이터 길이는 90초로 고정해야 합니다.
 >
-> 90초 이하의 데이터에대한 검출은 보장하지 않습니다.
+> 90초 이하의 데이터에 대한 검출은 보장하지 않습니다.
 >
-> 90초 이상의 데이터는 90초 단위로 분리하여 순차적으로 검출 함수에 입력하여 확인해야합니다.  
-(90초씩 shift할 경우 경계영역에 대한 검출 정확도가 낮아지므로, 45초씩 shift하여 호출하는것을 권장합니다.)
+> 90초 이상의 데이터는 90초 단위로 분리하여 순차적으로 검출 함수에 입력하여 확인해야 합니다.  
+(90초씩 shift할 경우 경계 영역에 대한 검출 정확도가 낮아지므로, 45초씩 shift하여 호출하는 것을 권장합니다.)
+
 
 ### 검출 함수 정의
 부정맥 검출을 위해 호출 가능한 함수들은 아래와 같이 정의됩니다.
@@ -158,6 +159,15 @@ Arrhythmia detect_Atrial_Fibrillation(std::vector<double> samples, int sampleCou
  **/
 Arrhythmia detect_VT_SVT(std::vector<float> samples, int sampleCount);
 -->
+
+## How to use
+본 라이브러리의 경우, Windows OS에 DLL 파일을 직접 등록해야 사용 가능합니다.
+DLL을 등록하기 위해서는 명령 프롬프트(이전 cmd)를 실행하신 후, 아래의 커맨드를 입력하시면 됩니다.
+```cmd
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\regasm.exe "[DLL full path]"
+```
+단, 명령 프롬프트는 관리자 권한으로 실행해주어야 합니다.
+
 
 ## Copyright
 Copyright (c) 2020-2021 Ncube Inc.
