@@ -6,13 +6,15 @@ Arrhythmia Detection은 심전도(ECG) 파형 데이터를 분석하여, 해당 
 ### 검출 가능한 부정맥 종류
 현재 검출이 가능한 부정맥의 종류는 다음과 같습니다.
 - 심근 허혈증 (Ischemia)
-<!--
-- 조기심실수축 (PVC, Premature ventricular Contraction)
--->
 - 이단맥 (Bigeminy)
 - 삼단맥 (Trigeminy)
 - 심정지 (Asystole)
 <!--
+- 심근 허혈증 (Ischemia)
+- 조기심실수축 (PVC, Premature ventricular Contraction)
+- 이단맥 (Bigeminy)
+- 삼단맥 (Trigeminy)
+- 심정지 (Asystole)
 - 심방 세동 (AF, Atrial Fibrillation)
 - 빈맥 (Tachycardia)
 - 심실빈맥 (VT, Ventricular Tachycardia)
