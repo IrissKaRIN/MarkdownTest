@@ -157,7 +157,7 @@ Arrhythmia detect_Atrial_Fibrillation(std::vector<double> samples, int sampleCou
  *     Arrhythmia::SVT (상심실성 빈맥)
  *     Arrhythmia::Bradycardia (서맥)
  **/
-Arrhythmia detect_VT_SVT(std::vector<float> samples, int sampleCount);
+Arrhythmia detect_PVC_VT_SVT(std::vector<float> samples, int sampleCount);
 -->
 
 ## How to use
