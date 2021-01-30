@@ -6,11 +6,6 @@ Arrhythmia Detection은 심전도(ECG) 파형 데이터를 분석하여, 해당 
 ### 검출 가능한 부정맥 종류
 현재 검출이 가능한 부정맥의 종류는 다음과 같습니다.
 - 심근 허혈증 (Ischemia)
-- 이단맥 (Bigeminy)
-- 삼단맥 (Trigeminy)
-- 심정지 (Asystole)
-<!--
-- 심근 허혈증 (Ischemia)
 - 조기심실수축 (PVC, Premature ventricular Contraction)
 - 이단맥 (Bigeminy)
 - 삼단맥 (Trigeminy)
@@ -20,15 +15,8 @@ Arrhythmia Detection은 심전도(ECG) 파형 데이터를 분석하여, 해당 
 - 심실빈맥 (VT, Ventricular Tachycardia)
 - 상심실성 빈맥 (SVT, Supraventricular Tachycardia)
 - 서맥 (Bradycardia)
--->
 
 이후 지속적으로 다양한 부정맥 종류들을 추가할 예정입니다.
-- 조기심실수축 (PVC, Premature ventricular Contraction)
-- 심방 세동 (AF, Atrial Fibrillation)
-- 빈맥 (Tachycardia)
-- 심실빈맥 (VT, Ventricular Tachycardia)
-- 상심실성 빈맥 (SVT, Supraventricular Tachycardia)
-- 서맥 (Bradycardia)
 
 ## 제공 API 기본 구조
 
@@ -130,9 +118,7 @@ Arrhythmia detect_Ischemia(std::vector<float> samples, int sampleCount);
  *     Arrhythmia::Asystole (심정지)
  **/
 Arrhythmia detect_Bigeminy_Trigeminy_Asystole(std::vector<double> samples, int sampleCount);
-```
 
-<!--
 /**
  * @brief 심방 세동을 검출합니다.
  *
@@ -158,7 +144,7 @@ Arrhythmia detect_Atrial_Fibrillation(std::vector<double> samples, int sampleCou
  *     Arrhythmia::Bradycardia (서맥)
  **/
 Arrhythmia detect_PVC_VT_SVT(std::vector<float> samples, int sampleCount);
--->
+```
 
 ## How to use
 본 라이브러리의 경우, Windows OS에 DLL 파일을 직접 등록해야 사용 가능합니다.  
